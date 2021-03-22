@@ -1,0 +1,399 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+
+body.dark{
+    background-color: #333333;
+    color: white;   
+    border-color: white !important;
+}
+
+
+header.dark{
+    background-color: #333333;
+    color: white; 
+    border-color: white;  
+}
+
+header{
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+h1.dark{
+    color:white;
+}
+
+h1{
+    margin-top: 0;
+    font-size: 50pt;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    padding:10px;
+    color: #333333;
+}
+
+.lang{
+    padding-top:20px;
+    float: right;
+}
+
+#uk{
+    box-shadow: 0 5px 20px rgba(0,0,0,.75);
+    width: 50px;
+    height: 25px;
+    position: relative;
+    padding: 0px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius:10px;
+    background-image: url(https://cdn.discordapp.com/attachments/752447093687189514/783301691965046794/uk2.png);
+}
+
+#uk:hover{
+    border-radius:0px;
+}
+
+
+#swe{
+    box-shadow: 0 5px 20px rgba(0,0,0,.30);
+    width: 50px;
+    height: 25px;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    border-radius:10px;
+    background-image: url(https://cdn.discordapp.com/attachments/752447093687189514/783301689225773086/swe2.png);
+}
+
+#swe:hover{
+    border-radius:0px;
+}
+
+label{
+    font-weight: bold;
+}
+
+.container#blur.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;   
+}
+
+a.dark{
+    color:white;
+    background: #333333;
+}
+
+a:hover{
+    background-color:grey;
+}
+
+a{ 
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    position: relative;
+    padding: 5px 10px;
+    display: inline-block;
+    color: white;
+    background: #333333;
+    border-radius:10px;
+    margin-top:10px;
+    font-size:25pt;
+    text-decoration: none;
+}
+
+
+#popup{
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding:20px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background: #fff;
+    color: black;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+#popup.active{
+    top:50%;    
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#stats.active{
+    visibility: hidden;
+}
+
+#blue{
+    color:rgb(83, 138, 255);
+}
+
+#red{
+    color:red;
+}
+
+#close{
+    align-self: center;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+    background: #333333;
+    border-radius:10px;
+    font-size:20pt;
+    text-decoration: none;
+}
+
+#close:hover{
+    background:grey;
+}
+
+#setup-game{
+    justify-content: center;
+    background-color:lightskyblue;
+    border-radius: 20px;
+    margin-left:30%;
+    margin-right:30%;
+    margin-top:10px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    padding-top: 2px;
+}
+
+#setup-game > *{
+    font-size: 15pt;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
+    color: black;
+}
+
+
+#stats{
+    font-size:30px;
+    font-weight: bold;
+    text-align:center;
+}
+
+#timer{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background:none;
+    color: black;
+    box-shadow: none;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+#timer.dark{
+    color: white;
+}
+.container2#blur2.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;   
+}
+
+#pause-btn{
+    padding-left: 0px;
+    margin-left: 0px;
+    background:none;
+    color:black;
+    box-shadow: none;
+}
+
+#pause-btn.dark{
+    color: white;
+}
+#pause-btn:hover{
+    color:lightskyblue;
+    background:none;
+    box-shadow: none;
+}
+
+#resume-btn{
+    background:none;
+    color:black;
+    box-shadow: none;
+}
+
+#resume-btn.dark{
+    color:white
+}
+
+#resume-btn:hover{
+    color:lightskyblue;
+}
+
+i.dark{
+    color: white;
+}
+p.correct{
+    color:rgb(83, 138, 255);
+}
+
+
+p#lives.won{
+    font-size: 50px;
+    color:rgb(83, 138, 255);
+}
+
+p#lives.lost{
+    font-size: 50px;
+    color:red;
+}
+
+#game{
+    display: flex;
+    justify-content: center; 
+}
+
+#number-container > p{
+    border: 2px solid black;
+    border-radius: 20%;
+    width:54.5px;
+    height:54.5px;
+    font-size:35pt;
+    margin-left:50px;
+    margin-top:0px;
+    margin-bottom: 5px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0,0,0,.20);
+}
+
+#number-container > p:hover{
+    background-color: lightblue;
+}
+
+#board{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 580px;
+    height: 580px;
+}
+
+.tile{
+    border: 2px solid black;
+    width:58px;
+    height:58px;
+    text-align: center;
+    margin:0px;
+    vertical-align: middle;
+    font-size:40pt;
+}
+
+.tile:hover.dark{
+    background-color: gray;
+}   
+
+.tile:hover{
+    background-color: lightblue;
+}   
+
+p.selected {
+    background-color: lightblue;
+}
+
+
+p.incorrect {
+    color:red;
+}
+
+.rightBorder {
+    border-right:6px solid black;
+}
+
+.bottomBorder {
+    border-bottom:5px solid black;
+}
+
+
+/* Theme Slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    right: 5px;
+    width: 60px;
+    height: 34px;
+}
+.switch + .sticky {
+    margin-top: 12px;
+}
+
+#navbar + .sticky {
+    margin-top: 12px;   
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #333333;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #333333;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#switch1 {
+    margin: 10px;
+}

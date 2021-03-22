@@ -1,0 +1,179 @@
+  <!DOCTYPE html> 
+  <html lang="Eng">
+
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>Sudoku Game</title>
+    <link rel="icon" href="icon.png">
+
+    <!--User selects the languange-->
+    <div class="lang">
+      <!--Links back to the same page (this is the english version-->
+      <a href="" id="uk"></a>
+
+      <!--Links to the swedish version-->
+      <a href="https://18masa.ssis.nu/Sudoku%201.5S/" id="swe"></a>
+    </div>
+
+  
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+  </head>
+  
+  <header>
+    <!--Creates a div so everything inside can be blurred-->
+    <div class="container" id="blur">
+    <h1>Sudoku</h1>  
+    <!--Button to open instructions-->
+    <a href="#" onclick="toggle()" id="instructions">How to play?</a>
+
+    <!--The blue field for game settings-->
+    <div id ="setup-game">
+      <!--Choose diffuclty-->
+      <div id ="diff">
+        <h3>Choose Difficulty: </h3>
+        <label><input id ="diff-1" type ="radio" name ="diff" value ="easy"checked>Easy</label>
+        <label><input id ="diff-2" type ="radio" name ="diff" value ="medium">Medium</label>
+        <label><input id ="diff-3" type ="radio" name ="diff" value ="hard">Hard</label>
+      </div>
+      
+      <!--Choose theme-->
+      <div id ="theme">
+        <h3>Choose Theme: </h3>
+
+        <!-- Dark / Light Theme Switch-->
+        <b>Light</b>
+          <label class="switch F-R" id="switch1">
+            <input type="checkbox" onclick="ThemeSwitch()">
+            <span class="slider round"></span>
+          </label>
+       <b>Dark</b>
+      </div>
+    </div>
+
+    <!--Script for changing theme-->
+    <script>
+      function ThemeSwitch() {
+          if (document.getElementById("switch1").checked == false)
+          {
+              qs("h1").classList.remove("dark");  
+              qs("a").classList.remove("dark");
+              qs("body").classList.remove("dark");
+              qs("i").classList.remove("dark");
+              id("timer").classList.remove("dark");
+              document.getElementById("switch1").checked = true;
+          }
+          else {
+              qs("h1").classList.add("dark");
+              qs("a").classList.add("dark");
+              qs("body").classList.add("dark");
+              qs("i").classList.add("dark");
+              id("timer").classList.add("dark");
+              document.getElementById("switch1").checked = false;
+          }
+      }
+      function stickyon() {
+          document.getElementById("switch1").style.cssText += ';margin-top: 13px;';
+      }
+      function stickyoff() {
+          document.getElementById("switch1").style.cssText += ';margin-top: 10px;';
+      }
+  </script>
+
+
+    <!--Button for starting the game-->
+    <a href="#game" id="start-btn">Create new game!</a>
+    </div>
+  
+    <!--Instructions displayed through a popup-->
+    <div id="popup">
+      <h2>Instructions</h2>
+      <p>
+        <b>How it works:</b>
+        Sudoku is a logical puzzle with missing numbers that needs to be filled 
+        into a 9x9 board that consists of rows and unique 3x3 squares. 
+        Each square and row consists of numbers from 1 to 9,<b> no number can appear twice in a square or a row</b>.
+      </p>
+      <!--YouTube-video in the instructions-->
+      <iframe width="320" height="180" src="https://www.youtube.com/embed/OtKxtvMUahA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <p>
+        <b>Your assignment:</b> is to fill all the empty spaces in the board by following the instructions above.
+        To do so, you press the spot you'd like to fill with a number, 
+        then that spot will lighten and now you can select the number from the number container on the right.
+      </p>
+      <p>If the number you chose was <b>correct</b>, the number will turn <b id="blue">blue</b> and you can continue. <br>
+      If the number you chose was <b>incorrect</b>, the number will turn <b id="red">red</b> and one life will be taken away.</p>
+      <p><b>Tips: </b>If you get stuck, you sacrifice a life by guessing a number in an empty space. If you play on a computer, press the key F11 for fullscreen.</p>
+
+      <!--Close button for instructions (exit popup)-->
+      <a id="close" href="#" onclick="toggle()">Close</a>
+    </div>
+
+    <!--Script for blurring the header-->
+    <script type="text/javascript">
+      function toggle(){
+        var blur = document.getElementById('blur');
+        blur.classList.toggle('active');
+
+        var popup = document.getElementById('popup');
+        popup.classList.toggle('active')
+
+        var stats = document.getElementById('stats');
+        stats.classList.toggle('active')
+        
+      }
+    </script>
+  </header>
+
+  <body>
+    <!--Script for blurring the body-->
+    <script type="text/javascript">
+      function toggle2(){
+        var blur = document.getElementById('blur2');
+        blur.classList.toggle('active');
+      }
+    </script>
+
+    <!--Displays the time and lives-->
+    <div id="stats">
+      <!--Timer-->
+      <a id="timer"></a>
+
+      <!--Fontawesome pause icon-->
+      <a id="pause-btn" class="hidden" onclick="toggle2()">
+        <i class="fas fa-pause" id="pause-btn"></i>
+      </a>
+
+      <!--Fontawesome play icon-->
+      <a id="resume-btn" class="hidden" onclick="toggle2()">
+        <i class="fas fa-play" id="resume-btn"></i>
+      </a>
+      <!--Lives remaining-->
+      <p id="lives"></p>
+    </div>
+
+    <!--Blurrable area for the game part-->
+    <div class="container2" id="blur2">
+
+    <!--Board + number container-->
+    <div id="game">
+      <div id="board"></div>
+      <div id="number-container" class="hidden">
+        <p id="one">1</p>
+        <p id="two">2</p>
+        <p id="three">3</p>
+        <p id="four">4</p>
+        <p id="five">5</p>
+        <p id="six">6</p>
+        <p id="seven">7</p>
+        <p id="eight">8</p>
+        <p id="nine">9</p>
+      </div>
+    </div>
+  </div>
+  </body>
+  </html> 
